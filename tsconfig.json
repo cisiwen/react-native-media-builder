@@ -3,7 +3,10 @@
     "declaration": true,
     "esModuleInterop": true,
     "jsx": "react",
-    "lib": ["ESNext"],
+    "lib": [
+      "ESNext"
+    ],
+    "strictNullChecks": false,
     "module": "ESNext",
     "moduleResolution": "Node",
     "noEmitOnError": true,
@@ -12,7 +15,13 @@
     "sourceMap": true,
     "strict": true,
     "target": "ES2018",
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
   },
-  "exclude": ["**/__tests__/*"],
-  "include": ["src"]
+  "exclude": [
+    "**/__tests__/*"
+  ],
+  "include": [
+    "src"
+  ]
 }

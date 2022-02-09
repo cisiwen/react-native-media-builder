@@ -1,17 +1,17 @@
 {
-  "name": "react-native-module-template",
-  "version": "2.5.1",
-  "description": "A starter for the React Native library written in TypeScript, with linked example project and optional native code in Swift and Kotlin.",
-  "homepage": "https://github.com/demchenkoalex/react-native-module-template#readme",
+  "name": "react-native-media-builder",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/cisiwen/react-native-media-builder#readme",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "author": "Alex Demchenko <alexdemchenko@yahoo.com>",
+  "author": "cisiwen <cisiwen@hotmail.com>",
   "license": "MIT",
   "files": [
     "android",
     "ios",
     "lib",
-    "react-native-module-template.podspec",
+    "react-native-media-builder.podspec",
     "!android/build",
     "!.DS_Store",
     "!.gradle",
@@ -51,7 +51,12 @@
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "@miblanchard/react-native-slider": "^2.1.0",
+    "ffmpeg-kit-react-native": "^4.5.1",
+    "react-native-gesture-handler": "^2.2.0",
+    "react-native-reanimated": "^2.4.1",
+    "react-native-record-screen": "^0.4.0"
   },
   "jest": {
     "preset": "react-native",
@@ -63,5 +68,12 @@
       "json",
       "node"
     ]
+  },
+  "dependencies": {
+    "@miblanchard/react-native-slider": "^2.1.0",
+    "ffmpeg-kit-react-native": "^4.5.1",
+    "react-native-gesture-handler": "^2.2.0",
+    "react-native-reanimated": "^2.4.1",
+    "react-native-record-screen": "^0.4.0"
   }
 }

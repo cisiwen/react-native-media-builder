@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react'
-import RNModuleTemplateModule, { Counter } from 'react-native-module-template'
+import { View } from 'react-native'
+import { Counter, ImageViewer } from 'react-native-media-builder'
 
 const App = () => {
   useEffect(() => {
-    console.log(RNModuleTemplateModule)
+    console.log("MB", 1);
   })
 
-  return <Counter />
+  return <ImageViewer />
 }
 
 export default App
