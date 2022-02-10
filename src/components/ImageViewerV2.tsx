@@ -58,11 +58,14 @@ export type ItemRender = (
   callback: OnItemRenderItemLoaded,
   style: StyleProp<Animated.AnimateStyle<StyleProp<ImageStyle>>>
 ) => React.ReactElement
-export const ImageViewerV2 = (props: {
+
+
+export interface IImageViewerV2Props {
   url: string
   sourceData?: any
   itemRender?: ItemRender
-}) => {
+}
+export const ImageViewerV2 = (props: IImageViewerV2Props) => {
   let scale = useSharedValue(1)
 
   /**
@@ -324,7 +327,7 @@ export const ImageViewerV2 = (props: {
             <Animated.View style={[styles.container]} collapsable={false}>
               {props.itemRender
                 ? props.itemRender(
-                  props.sourceData,
+                  props,
                   onImageLoaded,
                   animatedStyles
                 )

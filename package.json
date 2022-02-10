@@ -55,7 +55,7 @@
     "@miblanchard/react-native-slider": "^2.1.0",
     "ffmpeg-kit-react-native": "^4.5.1",
     "react-native-gesture-handler": "^2.2.0",
-    "react-native-reanimated": "^2.4.1",
+    "react-native-reanimated": "2.4.1",
     "react-native-record-screen": "^0.4.0"
   },
   "jest": {

@@ -17,26 +17,27 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated'
 
-import { ControlBar, IControlBarProps } from '../components/ControlBar'
-import { ControlBorderRadius } from '../components/ControlBorderRadius'
-import { EditableText } from '../components/EditableText'
-import { MCEventBus, MCEventType } from '../components/EventBus'
-import { GlobalSetting } from '../components/GlobalSetting'
+import { ControlBar, IControlBarProps } from 'react-native-media-builder'
+import { ControlBorderRadius } from 'react-native-media-builder'
+import { EditableText } from 'react-native-media-builder'
+import { MCEventBus, MCEventType } from 'react-native-media-builder'
+import { GlobalSetting } from 'react-native-media-builder'
 import {
   IImageViewerV2Props,
   OnItemRenderItemLoaded,
-} from '../components/ImageViewerV2'
+} from 'react-native-media-builder'
 //import { ImageViewer } from './ImageViewer';
-import { MediaCollage } from '../components/MediaCollage'
-import { MoveResizeView } from '../components/MoveResizeView'
-import { useRecordScreenZone } from '../components/ViewRecorder'
-import { Layout5, Layout5_W2W2W2W2W1 } from '../layouts/Layout5Items'
-import { TextTopAndBottomLayout } from '../layouts/TextLayout2Item'
-import { ICollageItem, ICollageLayout } from '../models/Collage'
+import { MediaCollage } from 'react-native-media-builder'
+import { MoveResizeView } from 'react-native-media-builder'
+import { useRecordScreenZone } from 'react-native-media-builder'
+import { Layout5, Layout5_W2W2W2W2W1 } from 'react-native-media-builder'
+import { TextTopAndBottomLayout } from 'react-native-media-builder'
+import { ICollageItem, ICollageLayout } from 'react-native-media-builder'
 import {
   collageLayoutToCollageItem,
   getLinkItemByIds,
-} from '../utility/Utitliy'
+} from 'react-native-media-builder'
+import Video from 'react-native-video';
 export interface ICollageLayoutScreenProps {
   mediasUri: string[]
 }
@@ -84,11 +85,46 @@ export function CollageLayoutScreen(props: ICollageLayoutScreenProps) {
         source={{ uri: url }}
       />
     )
+  };
+
+  const renderVideo = (url: string,
+    onLoaded: OnItemRenderItemLoaded,
+    c: StyleProp<Animated.AnimateStyle<StyleProp<any>>>) => {
+
+    return <Animated.View style={[c, { flex: 1, width: "100%", backgroundColor: "#000" }]}>
+      <Video
+        muted={true}
+        resizeMode="cover"
+        onVideoLoad={() => {
+          onLoaded({
+            width: 400,
+            height: 400,
+            uri: url
+          })
+        }}
+        style={{ flex: 1, width: "100%", height: "100%" }}
+        source={{ uri: url }}>
+      </Video></Animated.View>
   }
+
+
+  const renderItems = (hostProps: IImageViewerV2Props, b: OnItemRenderItemLoaded, c: StyleProp<Animated.AnimateStyle<StyleProp<ImageStyle>>>) => {
+    let url = hostProps.url;
+    let isImage = true;
+    if (url.indexOf(".jpg") < 0) {
+      isImage = false;
+    }
+    const [isVideo, setIsVideo] = React.useState<boolean>(!isImage);
+    React.useEffect(() => {
+      console.log(`renderItems-${hostProps.sourceData.id}-${isVideo}`, hostProps.url)
+    }, [hostProps])
+    return isVideo ? renderVideo(hostProps.url, b, c) : renderAnimateImage(hostProps.url, b, c);
+  }
+
   defaultLayout5.items.forEach((a) => {
     a.itemRenderer = (hostProps: IImageViewerV2Props, b, c) => {
       console.log('itemRenderer', data)
-      let result = renderAnimateImage(hostProps.url, b, c)
+      let result = renderItems(hostProps, b, c)
       return result
     }
     //a.itemRenderer = null

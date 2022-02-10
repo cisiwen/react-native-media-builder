@@ -4,7 +4,9 @@ import android.app.Application
 import android.content.Context
 import com.cisiwen.reactnativemediabuilder.RNMediaBuilderPackage
 import com.facebook.react.*
+import com.facebook.react.bridge.JSIModulePackage
 import com.facebook.soloader.SoLoader
+import com.swmansion.reanimated.ReanimatedJSIModulePackage
 import java.lang.reflect.InvocationTargetException
 
 class MainApplication : Application(), ReactApplication {
@@ -25,6 +27,10 @@ class MainApplication : Application(), ReactApplication {
         override fun getJSMainModuleName(): String {
             return "index"
         }
+
+        override fun getJSIModulePackage(): JSIModulePackage? {
+            return ReanimatedJSIModulePackage() // <- add
+        }
     }
 
     override fun getReactNativeHost(): ReactNativeHost {
@@ -39,13 +45,20 @@ class MainApplication : Application(), ReactApplication {
 
     companion object {
 
-        private fun initializeFlipper(context: Context, reactInstanceManager: ReactInstanceManager) {
+        private fun initializeFlipper(
+            context: Context,
+            reactInstanceManager: ReactInstanceManager
+        ) {
             if (BuildConfig.DEBUG) {
                 try {
                     val aClass = Class.forName("com.example.ReactNativeFlipper")
                     aClass
-                            .getMethod("initializeFlipper", Context::class.java, ReactInstanceManager::class.java)
-                            .invoke(null, context, reactInstanceManager)
+                        .getMethod(
+                            "initializeFlipper",
+                            Context::class.java,
+                            ReactInstanceManager::class.java
+                        )
+                        .invoke(null, context, reactInstanceManager)
                 } catch (e: ClassNotFoundException) {
                     e.printStackTrace()
                 } catch (e: NoSuchMethodException) {
