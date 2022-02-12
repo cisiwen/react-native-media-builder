@@ -21,6 +21,10 @@ buildscript {
     }
 }
 
+ext {
+    ffmpegKitPackage = "full-gpl"
+}
+
 allprojects {
     repositories {
         jcenter() {
