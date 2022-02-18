@@ -17,7 +17,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated'
 
-import { ControlBar, IControlBarProps } from 'react-native-media-builder'
+import { ControlBar, Helper, IControlBarProps } from 'react-native-media-builder'
 import { ControlBorderRadius } from 'react-native-media-builder'
 import { EditableText } from 'react-native-media-builder'
 import { MCEventBus, MCEventType } from 'react-native-media-builder'
@@ -93,7 +93,9 @@ export function CollageLayoutScreen(props: ICollageLayoutScreenProps) {
 
     return <Animated.View style={[c, { flex: 1, width: "100%", backgroundColor: "#000" }]}>
       <Video
+        useTextureView={false}
         muted={true}
+        repeat={true}
         resizeMode="cover"
         onVideoLoad={() => {
           onLoaded({
@@ -110,10 +112,7 @@ export function CollageLayoutScreen(props: ICollageLayoutScreenProps) {
 
   const renderItems = (hostProps: IImageViewerV2Props, b: OnItemRenderItemLoaded, c: StyleProp<Animated.AnimateStyle<StyleProp<ImageStyle>>>) => {
     let url = hostProps.url;
-    let isImage = true;
-    if (url.indexOf(".jpg") < 0) {
-      isImage = false;
-    }
+    let isImage = Helper.isImageExtension(url);
     const [isVideo, setIsVideo] = React.useState<boolean>(!isImage);
     React.useEffect(() => {
       console.log(`renderItems-${hostProps.sourceData.id}-${isVideo}`, hostProps.url)
