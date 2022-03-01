@@ -1,7 +1,7 @@
 {
   "name": "react-native-media-builder",
   "version": "1.0.1",
-  "description": "",
+  "description": "React native media collage filter",
   "homepage": "https://github.com/cisiwen/react-native-media-builder#readme",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
