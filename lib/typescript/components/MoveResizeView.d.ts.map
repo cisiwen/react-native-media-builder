@@ -1,0 +1,1 @@
+{"version":3,"file":"MoveResizeView.d.ts","sourceRoot":"","sources":["../../../src/components/MoveResizeView.tsx"],"names":[],"mappings":"AAAA,OAAc,EAAE,SAAS,EAAY,MAAM,OAAO,CAAC;AAcnD,OAAO,KAAK,EAAE,YAAY,EAAE,MAAM,mBAAmB,CAAC;AAKtD,eAAO,MAAM,cAAc;cACf,YAAY,EAAE;UAClB,YAAY;mBACH,YAAY;cACjB,SAAS;8BACO,YAAY,KAAK,IAAI;iBA6HhD,CAAC"}
