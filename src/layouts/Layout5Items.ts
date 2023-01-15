@@ -1,5 +1,5 @@
-import { ICollageItemLayout, ICollageLayout } from '../models/Collage'
-import { collageLayoutToCollageItem } from '../utility/Utitliy'
+import type { ICollageItemLayout, ICollageLayout } from '../models/Collage';
+import { collageLayoutToCollageItem } from '../utility/Utitliy';
 
 export const Layout5_W2W2W2W2W1 = (): ICollageItemLayout[] => {
   return [
@@ -33,8 +33,8 @@ export const Layout5_W2W2W2W2W1 = (): ICollageItemLayout[] => {
       percentLeft: 0.3333333,
       percentTop: 0.333333333,
     },
-  ]
-}
+  ];
+};
 
 export const Layout5_H2H2H2H2H1 = (): ICollageItemLayout[] => {
   return [
@@ -68,8 +68,8 @@ export const Layout5_H2H2H2H2H1 = (): ICollageItemLayout[] => {
       percentLeft: 0.333333333,
       percentTop: 0.333333333,
     },
-  ]
-}
+  ];
+};
 
 export const Layout5_W5W5W10W5W5 = (): ICollageItemLayout[] => {
   return [
@@ -103,8 +103,8 @@ export const Layout5_W5W5W10W5W5 = (): ICollageItemLayout[] => {
       percentLeft: 0.5,
       percentTop: 0.666666666,
     },
-  ]
-}
+  ];
+};
 
 export const Layout5_212 = (): ICollageItemLayout[] => {
   return [
@@ -138,8 +138,8 @@ export const Layout5_212 = (): ICollageItemLayout[] => {
       percentLeft: 0,
       percentTop: 0.5,
     },
-  ]
-}
+  ];
+};
 
 export const Layout5_H1H1H1H1H1 = (): ICollageItemLayout[] => {
   return [
@@ -173,8 +173,8 @@ export const Layout5_H1H1H1H1H1 = (): ICollageItemLayout[] => {
       percentLeft: 0.8,
       percentTop: 0,
     },
-  ]
-}
+  ];
+};
 
 export const Layout5_W1W1W1W1W1 = (): ICollageItemLayout[] => {
   return [
@@ -208,8 +208,8 @@ export const Layout5_W1W1W1W1W1 = (): ICollageItemLayout[] => {
       percentLeft: 0,
       percentTop: 0.8,
     },
-  ]
-}
+  ];
+};
 
 /**
  * Top 3 bottom 2
@@ -250,8 +250,8 @@ export const Layout5_TOP3BTM2 = (): ICollageItemLayout[] => {
       percentLeft: 0,
       percentTop: 0.5,
     },
-  ]
-}
+  ];
+};
 
 export const Layout5_Top2Bottom3 = (): ICollageItemLayout[] => {
   return [
@@ -285,8 +285,8 @@ export const Layout5_Top2Bottom3 = (): ICollageItemLayout[] => {
       percentLeft: 0,
       percentTop: 0.5,
     },
-  ]
-}
+  ];
+};
 
 export const Layout5_Left3Right2 = (): ICollageItemLayout[] => {
   return [
@@ -320,8 +320,8 @@ export const Layout5_Left3Right2 = (): ICollageItemLayout[] => {
       percentLeft: 0,
       percentTop: 0.3333333333,
     },
-  ]
-}
+  ];
+};
 
 export const Layout5_Left2Right3 = (): ICollageItemLayout[] => {
   return [
@@ -355,8 +355,8 @@ export const Layout5_Left2Right3 = (): ICollageItemLayout[] => {
       percentLeft: 0,
       percentTop: 0.5,
     },
-  ]
-}
+  ];
+};
 
 export const Layout5_Top1Middle3Bottom1 = (): ICollageItemLayout[] => {
   return [
@@ -390,8 +390,8 @@ export const Layout5_Top1Middle3Bottom1 = (): ICollageItemLayout[] => {
       percentLeft: 0,
       percentTop: 0.666666666,
     },
-  ]
-}
+  ];
+};
 
 export const Layout5 = (
   w: number,
@@ -448,6 +448,6 @@ export const Layout5 = (
         borderW
       ),
     },
-  ]
-  return output
-}
+  ];
+  return output;
+};

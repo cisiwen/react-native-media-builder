@@ -1,38 +1,38 @@
-import React, { useEffect } from 'react'
-import { useState } from 'react'
-import { StyleSheet, View } from 'react-native'
+import React, { useEffect } from 'react';
+import { useState } from 'react';
+import { StyleSheet, View } from 'react-native';
 
-import { ICollageItem, ICollageLayout } from '../models/Collage'
-import { CollageItem } from './CollageItem'
-import { MCEventBus, MCEventType } from './EventBus'
+import type { ICollageItem, ICollageLayout } from '../models/Collage';
+import { CollageItem } from './CollageItem';
+import { MCEventBus, MCEventType } from './EventBus';
 
 export const MediaCollage = (props: { layout: ICollageLayout }) => {
   let [selectedItem, setSelectedItem] = useState<ICollageItem | undefined>(
     undefined
-  )
+  );
   let onResizerSelected = (item: ICollageItem) => {
-    console.log(MCEventBus.events.length)
+    console.log(MCEventBus.events.length);
     setSelectedItem(
       selectedItem && selectedItem.id === item.id ? undefined : item
-    )
-  }
-  let eventId = `MediaCollage${MCEventType.LayoutChanged}`
+    );
+  };
+  let eventId = `MediaCollage${MCEventType.LayoutChanged}`;
 
   MCEventBus.addToEvents({
     id: eventId,
     type: MCEventType.LayoutChanged,
     callback: () => {
       if (selectedItem) {
-        setSelectedItem(undefined)
+        setSelectedItem(undefined);
       }
     },
-  })
+  });
 
   useEffect(() => {
     return () => {
-      MCEventBus.removeFromEvents(eventId)
-    }
-  })
+      MCEventBus.removeFromEvents(eventId);
+    };
+  });
 
   const style = StyleSheet.create({
     rootContainer: {
@@ -49,7 +49,7 @@ export const MediaCollage = (props: { layout: ICollageLayout }) => {
       aspectRatio: 1,
       position: 'relative',
     },
-  })
+  });
 
   return (
     <View style={[style.rootContainer]}>
@@ -64,9 +64,9 @@ export const MediaCollage = (props: { layout: ICollageLayout }) => {
               onResizerSelected={onResizerSelected}
               selectedItem={selectedItem}
             />
-          )
+          );
         })}
       </View>
     </View>
-  )
-}
+  );
+};

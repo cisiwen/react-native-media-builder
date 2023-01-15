@@ -28,6 +28,20 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "esnext"
-  }
+    "target": "esnext",
+    "outDir": "libs",
+  },
+  "exclude": [
+    "example",
+    ".vscode",
+    ".serverless",
+    ".git",
+    "node_modules",
+    "node_modules/*",
+    "src/UI",
+    "Cloudformation",
+    "node_modules_linux",
+    "node_modules_linux/*",
+    "libs"
+  ],
 }

@@ -1,27 +1,27 @@
-import * as React from 'react'
+import * as React from 'react';
 import {
   GestureResponderEvent,
   Pressable,
   StyleSheet,
   View,
-} from 'react-native'
-import { ScrollView } from 'react-native-gesture-handler'
+} from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 
-import { ICollageLayout } from '../models/Collage'
-import { getValue } from '../utility/Utitliy'
+import type { ICollageLayout } from '../models/Collage';
+import { getValue } from '../utility/Utitliy';
 export interface IControlBarProps {
   onControlItemPressed: (
     event: GestureResponderEvent,
     payload: ICollageLayout
-  ) => void
-  layouts: ICollageLayout[]
+  ) => void;
+  layouts: ICollageLayout[];
 }
 
 export const ControlBar = (props: { data: IControlBarProps }) => {
-  let w = 50
-  let h = 50
-  let borderW = 1
-  let lists = props.data.layouts
+  let w = 50;
+  let h = 50;
+  let borderW = 1;
+  let lists = props.data.layouts;
 
   const style = StyleSheet.create({
     continaer: {
@@ -41,7 +41,7 @@ export const ControlBar = (props: { data: IControlBarProps }) => {
       position: 'absolute',
       backgroundColor: '#fff',
     },
-  })
+  });
   const render = (layout: ICollageLayout, index: number) => {
     return (
       <Pressable
@@ -67,12 +67,12 @@ export const ControlBar = (props: { data: IControlBarProps }) => {
                   },
                 ]}
               />
-            )
+            );
           })}
         </View>
       </Pressable>
-    )
-  }
+    );
+  };
 
   return (
     <View>
@@ -82,9 +82,9 @@ export const ControlBar = (props: { data: IControlBarProps }) => {
         style={[style.scrollView]}
       >
         {lists.map((item, i) => {
-          return render(item, i)
+          return render(item, i);
         })}
       </ScrollView>
     </View>
-  )
-}
+  );
+};

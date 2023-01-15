@@ -1,58 +1,58 @@
-import React, { ReactNode, useState } from 'react'
+import React, { ReactNode, useState } from 'react';
 import {
   GestureResponderEvent,
   Pressable,
   StyleSheet,
   View,
-} from 'react-native'
-import { TouchableNativeFeedback } from 'react-native-gesture-handler'
+} from 'react-native';
+import { TouchableNativeFeedback } from 'react-native-gesture-handler';
 import Animated, {
   useAnimatedRef,
   useAnimatedStyle,
   useSharedValue,
-} from 'react-native-reanimated'
+} from 'react-native-reanimated';
 
-import { ICollageItem, IResizerItem } from '../models/Collage'
-import { GlobalSetting } from './GlobalSetting'
-import { ImageViewerV2 } from './ImageViewerV2'
-import { ResizableView } from './ResizableView'
-import { SwappableViewItem } from './SwappableViewItem'
+import type { ICollageItem, IResizerItem } from '../models/Collage';
+import { GlobalSetting } from './GlobalSetting';
+import { ImageViewerV2 } from './ImageViewerV2';
+import { ResizableView } from './ResizableView';
+import { SwappableViewItem } from './SwappableViewItem';
 
 export const MoveResizeView = (props: {
-  allItems: ICollageItem[]
-  item: ICollageItem
-  selectedItem?: ICollageItem
-  children: ReactNode
-  onResizerSelected: (item: ICollageItem) => void
+  allItems: ICollageItem[];
+  item: ICollageItem;
+  selectedItem?: ICollageItem;
+  children: ReactNode;
+  onResizerSelected: (item: ICollageItem) => void;
 }) => {
   const setSelectedItem = (sender: ICollageItem) => {
     props.allItems.forEach((item, i) => {
       if (item.style.zIndex) {
         if (item.id !== sender.id) {
-          item.style.zIndex.value = item.id
+          item.style.zIndex.value = item.id;
         } else {
-          item.style.zIndex.value = 9
+          item.style.zIndex.value = 9;
         }
       }
-    })
-  }
+    });
+  };
   const onTab = (sender: ICollageItem, event: GestureResponderEvent) => {
     //console.log('ontab', event.nativeEvent);
     //sender.resizerItem = sender.resizerItemValue.value;
     //GlobalSetting.selectedItem = sender;
-    setSelectedItem(sender)
+    setSelectedItem(sender);
     //props.onResizerSelected(sender);
-  }
+  };
 
-  props.item.style.zIndex = useSharedValue(props.item.id)
+  props.item.style.zIndex = useSharedValue(props.item.id);
   const onStartResizing = (sender: any) => {
     //console.log(sender);
-  }
+  };
 
-  props.item.element = useAnimatedRef<Animated.View>()
+  props.item.element = useAnimatedRef<Animated.View>();
   const onAcitveResizing = (sender: any) => {
     //console.log(onAcitveResizing.name, sender)
-  }
+  };
 
   const animatedStyle = useAnimatedStyle(() => {
     return {
@@ -68,8 +68,8 @@ export const MoveResizeView = (props: {
         },
       ],
       position: 'absolute',
-    }
-  })
+    };
+  });
 
   const mediaContainerStyle = useAnimatedStyle(() => {
     return {
@@ -77,12 +77,12 @@ export const MoveResizeView = (props: {
       flex: 1,
       margin: 0,
       overflow: 'hidden',
-    }
-  })
+    };
+  });
 
-  props.item.uriShareValue = useSharedValue<string>(props.item.uri)
-  let [url, setUrl] = useState<string>(props.item.uriShareValue.value)
-  props.item.setUrlState = setUrl
+  props.item.uriShareValue = useSharedValue<string>(props.item.uri);
+  let [url, setUrl] = useState<string>(props.item.uriShareValue.value);
+  props.item.setUrlState = setUrl;
 
   const style = StyleSheet.create({
     innerContainer: {
@@ -104,7 +104,7 @@ export const MoveResizeView = (props: {
       height: '100%',
       overflow: 'visible',
     },
-  })
+  });
   return (
     <Animated.View
       ref={props.item.element}
@@ -120,7 +120,7 @@ export const MoveResizeView = (props: {
           <TouchableNativeFeedback
             style={[style.touchStyle]}
             onPress={(event: GestureResponderEvent) => {
-              onTab(props.item, event)
+              onTab(props.item, event);
             }}
           >
             <Animated.View style={[mediaContainerStyle]}>
@@ -133,7 +133,7 @@ export const MoveResizeView = (props: {
             <Pressable
               style={[style.pressable]}
               onPress={(event: GestureResponderEvent) => {
-                onTab(props.item, event)
+                onTab(props.item, event);
               }}
             >
               <ResizableView
@@ -147,5 +147,5 @@ export const MoveResizeView = (props: {
         ) : null}
       </View>
     </Animated.View>
-  )
-}
+  );
+};

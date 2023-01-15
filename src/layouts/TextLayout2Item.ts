@@ -1,5 +1,5 @@
-import { ICollageItemLayout, ICollageLayout } from '../models/Collage'
-import { collageLayoutToCollageItem } from '../utility/Utitliy'
+import type { ICollageItemLayout, ICollageLayout } from '../models/Collage';
+import { collageLayoutToCollageItem } from '../utility/Utitliy';
 export const TextTopAndBottom = (): ICollageItemLayout[] => {
   return [
     {
@@ -8,8 +8,8 @@ export const TextTopAndBottom = (): ICollageItemLayout[] => {
       percentLeft: 0,
       percentTop: 0.2,
     },
-  ]
-}
+  ];
+};
 
 export const TextTopAndBottomLayout = (
   w: number,
@@ -21,6 +21,6 @@ export const TextTopAndBottomLayout = (
       title: TextTopAndBottom.name,
       items: collageLayoutToCollageItem(TextTopAndBottom(), w, h, borderW),
     },
-  ]
-  return output
-}
+  ];
+  return output;
+};

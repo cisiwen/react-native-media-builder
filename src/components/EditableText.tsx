@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import {
   NativeSyntheticEvent,
   StyleSheet,
@@ -6,12 +6,12 @@ import {
   TextInput,
   TextInputChangeEventData,
   View,
-} from 'react-native'
+} from 'react-native';
 import {
   State,
   TapGestureHandler,
   TapGestureHandlerStateChangeEvent,
-} from 'react-native-gesture-handler'
+} from 'react-native-gesture-handler';
 const style = StyleSheet.create({
   text: {
     fontSize: 40,
@@ -21,20 +21,20 @@ const style = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
   },
-})
+});
 
 export const EditableText = (props: { text: string }) => {
-  let [text, setText] = useState<string>(props.text)
+  let [text, setText] = useState<string>(props.text);
   const onTextChange = (e: NativeSyntheticEvent<TextInputChangeEventData>) => {
-    setText(e.nativeEvent.text)
-  }
+    setText(e.nativeEvent.text);
+  };
 
-  const [isEditMode, toggleEditMode] = useState<boolean>(false)
+  const [isEditMode, toggleEditMode] = useState<boolean>(false);
   const onDoubleTapped = (event: TapGestureHandlerStateChangeEvent) => {
     if (event.nativeEvent.state === State.ACTIVE) {
-      toggleEditMode(!isEditMode)
+      toggleEditMode(!isEditMode);
     }
-  }
+  };
   return (
     <View>
       {isEditMode ? (
@@ -59,5 +59,5 @@ export const EditableText = (props: { text: string }) => {
         </TapGestureHandler>
       )}
     </View>
-  )
-}
+  );
+};

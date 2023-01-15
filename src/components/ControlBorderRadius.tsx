@@ -1,19 +1,19 @@
-import { Slider } from '@miblanchard/react-native-slider'
-import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { Slider } from '@miblanchard/react-native-slider';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
 
-import { GlobalSetting } from './GlobalSetting'
+import { GlobalSetting } from './GlobalSetting';
 export const ControlBorderRadius = () => {
   const onValueChange = (value: any) => {
-    GlobalSetting.spacing.value = value
-  }
+    GlobalSetting.spacing.value = value;
+  };
   const onRadiusValueChange = (value: any) => {
     if (value.length > 0) {
-      GlobalSetting.radius.value = value[0]
+      GlobalSetting.radius.value = value[0];
     } else {
-      GlobalSetting.radius.value = value
+      GlobalSetting.radius.value = value;
     }
-  }
+  };
   const style = StyleSheet.create({
     rootContainer: {
       paddingLeft: 20,
@@ -33,7 +33,7 @@ export const ControlBorderRadius = () => {
       padding: 0,
       flex: 1,
     },
-  })
+  });
   const renderPaddingSliderControl = () => {
     return (
       <View style={[style.container]}>
@@ -47,8 +47,8 @@ export const ControlBorderRadius = () => {
           />
         </View>
       </View>
-    )
-  }
+    );
+  };
 
   const renderRadiusSliderControl = () => {
     return (
@@ -63,13 +63,13 @@ export const ControlBorderRadius = () => {
           />
         </View>
       </View>
-    )
-  }
+    );
+  };
 
   return (
     <View style={[style.rootContainer]}>
       {renderPaddingSliderControl()}
       {renderRadiusSliderControl()}
     </View>
-  )
-}
+  );
+};
