@@ -12,9 +12,8 @@ import Animated, {
   useSharedValue,
 } from 'react-native-reanimated';
 
-import type { ICollageItem, IResizerItem } from '../models/Collage';
+import type { ICollageItem } from '../models/Collage';
 import { GlobalSetting } from './GlobalSetting';
-import { ImageViewerV2 } from './ImageViewerV2';
 import { ResizableView } from './ResizableView';
 import { SwappableViewItem } from './SwappableViewItem';
 
@@ -26,7 +25,7 @@ export const MoveResizeView = (props: {
   onResizerSelected: (item: ICollageItem) => void;
 }) => {
   const setSelectedItem = (sender: ICollageItem) => {
-    props.allItems.forEach((item, i) => {
+    props.allItems.forEach((item, _i) => {
       if (item.style.zIndex) {
         if (item.id !== sender.id) {
           item.style.zIndex.value = item.id;
@@ -36,7 +35,7 @@ export const MoveResizeView = (props: {
       }
     });
   };
-  const onTab = (sender: ICollageItem, event: GestureResponderEvent) => {
+  const onTab = (sender: ICollageItem, _event: GestureResponderEvent) => {
     //console.log('ontab', event.nativeEvent);
     //sender.resizerItem = sender.resizerItemValue.value;
     //GlobalSetting.selectedItem = sender;
@@ -45,12 +44,12 @@ export const MoveResizeView = (props: {
   };
 
   props.item.style.zIndex = useSharedValue(props.item.id);
-  const onStartResizing = (sender: any) => {
+  const onStartResizing = (_sender: any) => {
     //console.log(sender);
   };
 
   props.item.element = useAnimatedRef<Animated.View>();
-  const onAcitveResizing = (sender: any) => {
+  const onAcitveResizing = (_sender: any) => {
     //console.log(onAcitveResizing.name, sender)
   };
 

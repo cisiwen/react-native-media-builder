@@ -1,7 +1,6 @@
 import {
   FFmpegKit,
   FFmpegKitConfig,
-  FFmpegSession,
   Session,
   SessionState,
 } from 'ffmpeg-kit-react-native';
