@@ -1,6 +1,6 @@
 {
   "name": "react-native-media-builder",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "test",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -70,17 +70,12 @@
     "react-native": "0.70.5",
     "react-native-builder-bob": "^0.20.0",
     "release-it": "^15.0.0",
-    "typescript": "^4.5.2"
+    "typescript": "^4.5.2",
+    "@types/react-native-video": "^5.0.14"
   },
   "peerDependencies": {
-    "@miblanchard/react-native-slider": "*",
-    "ffmpeg-kit-react-native": "4.5.1",
     "react": "*",
-    "react-native": "*",
-    "react-native-gesture-handler": "*",
-    "react-native-reanimated": "*",
-    "react-native-record-screen": "*",
-    "react-native-video": "*"
+    "react-native": "*"
   },
   "resolutions": {
     "@types/react": "17.0.21"
@@ -166,7 +161,6 @@
   },
   "dependencies": {
     "@miblanchard/react-native-slider": "^2.2.0",
-    "@types/react-native-video": "^5.0.14",
     "ffmpeg-kit-react-native": "4.5.1",
     "react-native-gesture-handler": "^2.9.0",
     "react-native-reanimated": "^2.14.1",
