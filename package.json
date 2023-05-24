@@ -1,6 +1,6 @@
 {
   "name": "react-native-media-builder",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "test",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -71,11 +71,23 @@
     "react-native-builder-bob": "^0.20.0",
     "release-it": "^15.0.0",
     "typescript": "^4.5.2",
-    "@types/react-native-video": "^5.0.14"
+    "@types/react-native-video": "^5.0.14",
+    "@miblanchard/react-native-slider": "^2.2.0",
+    "ffmpeg-kit-react-native": "4.5.1",
+    "react-native-gesture-handler": "^2.9.0",
+    "react-native-reanimated": "^2.14.1",
+    "react-native-record-screen": "^0.4.0",
+    "react-native-video": "^5.2.1"
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "@miblanchard/react-native-slider": "*",
+    "ffmpeg-kit-react-native": "*",
+    "react-native-gesture-handler": "*",
+    "react-native-reanimated": "*",
+    "react-native-record-screen": "*",
+    "react-native-video": "*"
   },
   "resolutions": {
     "@types/react": "17.0.21"
@@ -160,11 +172,6 @@
     ]
   },
   "dependencies": {
-    "@miblanchard/react-native-slider": "^2.2.0",
-    "ffmpeg-kit-react-native": "4.5.1",
-    "react-native-gesture-handler": "^2.9.0",
-    "react-native-reanimated": "^2.14.1",
-    "react-native-record-screen": "^0.4.0",
-    "react-native-video": "^5.2.1"
+   
   }
 }
